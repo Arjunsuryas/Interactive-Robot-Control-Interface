@@ -1,0 +1,29 @@
+import React from 'react';
+import { 
+  Activity, Clock, MapPin, Thermometer, 
+  Wifi, Battery, CheckCircle, AlertTriangle
+} from 'lucide-react';
+
+interface StatusPanelProps {
+  status: {
+    battery: number;
+    temperature: number;
+    connectivity: string;
+    position: { x: number; y: number };
+    lastCommand: string;
+    tasksCompleted: number;
+    uptime: string;
+    mode: string;
+  };
+}
+
+export const StatusPanel: React.FC<StatusPanelProps> = ({ status }) => {
+  const StatusCard: React.FC<{
+    icon: React.ReactNode;
+    label: string;
+    value: string | number;
+    color?: string;
+    warning?: boolean;
+  }> = ({ icon, label, value, color = "text-slate-300", warning = false }) => (
+    <div className={`backdrop-blur-sm bg-white/5 border ${warning ? 'border-yellow-500/30' : 'border-white/10'} rounded-xl p-4`}>
+};
