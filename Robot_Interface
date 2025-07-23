@@ -1,0 +1,29 @@
+import React from 'react';
+import { Bot, Wifi, Battery, Thermometer } from 'lucide-react';
+
+interface RobotInterfaceProps {
+  status: {
+    power: boolean;
+    battery: number;
+    mode: string;
+    temperature: number;
+    connectivity: string;
+  };
+  activeCommand: string;
+}
+
+export const RobotInterface: React.FC<RobotInterfaceProps> = ({ status, activeCommand }) => {
+  const getModeColor = (mode: string) => {
+    switch (mode) {
+      case 'active': return 'text-emerald-400';
+      case 'emergency': return 'text-red-400';
+      case 'charging': return 'text-yellow-400';
+      default: return 'text-cyan-400';
+    }
+  };
+
+  const getModeGlow = (mode: string) => {
+    switch (mode) {
+      case 'active': return 'shadow-emerald-400/50';
+      case 'emergency': return 'shadow-red-400/50';
+};
